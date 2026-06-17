@@ -15,20 +15,18 @@ Optimizar un playbook conversacional a mano es lento y sesgado: el diseñador no
 ## La idea — Generate → Filter → Validate
 
 ```
-Fase 1 — GENERACIÓN (LLM ≠ el que ejecuta)
-  Genera 10-15 variantes con dimensiones explícitas
-  Cada variante explora una elección arquitectónica real
-  (concisión, cobertura de fallbacks, sintaxis NLU+LLM, etc.)
+Fase 1 — GENERACIÓN (LLM1, guiada por el KB)
+  gen_context_loader carga el KB (principios + reglas de plataforma + constraints del cliente)
+  → LLM1 genera 10-15 variantes YA dentro de bounds
+  (cada una explora una elección arquitectónica real: concisión, fallbacks, sintaxis NLU+LLM…)
 
-Fase 2 — FILTRO (Claude)
-  Evalúa contra criterios de consistencia y calidad
-  Selecciona las 3 más diferenciadas entre sí
-  Distinto LLM que el generador → sesgo mínimo
+Fase 2 — CRIBA (barata — reduce antes de gastar en la plataforma)
+  · Filtro por razonamiento (LLM2 ≠ generador → sesgo mínimo) → top 3 más diferenciadas
+  · Criba behavioral $0 (ADK local) → prueba en local, descarta las débiles (gated por ADK)
 
-Fase 3 — VALIDACIÓN (QAP — plataforma real)
-  Las 3 variantes corren contra la suite QA completa en staging
-  KPIs medidos por variante vs baseline
-  La plataforma decide, no el generador
+Fase 3 — VALIDACIÓN (plataforma real, CX)
+  Solo los finalistas corren contra la suite QA en staging
+  KPIs por variante vs baseline · la plataforma decide, no el generador
 ```
 
 **Por qué 10-15 dirigidas > 100 aleatorias:** variantes que exploran dimensiones ortogonales dan señal clara al filtro. 100 variaciones de superficie se agrupan alrededor del original y no descubren nada nuevo.
