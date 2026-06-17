@@ -37,18 +37,9 @@ Fase 3 — VALIDACIÓN (plataforma real, CX)
 
 ## Dimensiones de generación
 
-| Variante | Dimensión | Hipótesis |
-|---|---|---|
-| A | Máxima concisión | Menos contexto = menos confusión |
-| B | Máxima cobertura de fallbacks | Más ramas = menos comportamiento indefinido |
-| C | Sintaxis NLU+LLM híbrida | Clasificación por Intent + LLM para slot-filling |
-| D | Estructura XML formal | Puede ser más parseable que prosa estructurada |
-| E | Imperativo puro | Eliminar ambigüedad de segunda persona |
-| F | Parámetros declarados inline | Visibilidad de estado en cada paso |
-| G | Condicionales unificados (→) | Consistencia sintáctica máxima |
-| H | Un playbook por responsabilidad | Responsabilidad única = menos interferencias |
-| I | Few-shot embebidos | El modelo aprende del patrón, no solo de la regla |
-| J | Sin marcadores visuales | Comprobar si el ruido visual perjudica |
+Cada variante explora una **palanca de diseño** distinta — ejemplos: concisión, cobertura de fallbacks, arquitectura NLU+LLM híbrida, una responsabilidad por playbook, few-shot embebidos.
+
+*Lista inicial (del diseño conversacional + plataforma CX), no un set cerrado: **se enriquece a medida que se enriquece el KB** — RES (investigación) y Sistema B (experiencia) alimentan el KB, y el catálogo de palancas crece con él. Se formalizará en `kb_ag_diseño` / `kb_plat_cx`.*
 
 ---
 
