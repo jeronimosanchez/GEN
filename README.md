@@ -69,14 +69,8 @@ CD (kb + método)
 
 GEN y QAP se retroalimentan: GEN genera candidatos, QAP valida y devuelve señal de qué mejorar. El ciclo es deliberado — cada iteración produce artefactos más precisos.
 
-**Pre-requisito para arrancar:** staging operativo (las variantes se validan en aislamiento, no en producción).
+**Prerequisito del paso de validación:** el paso de **validación** (Fase 3, contra CX real) requiere un **staging** operativo — para probar las variantes en aislamiento, no en producción. La generación y la criba $0 (ADK) no lo necesitan.
 
-## El sistema completo
+## Dónde encaja
 
-| Repo | Responsabilidad | Estado |
-|---|---|---|
-| **ACT** ([cx-automation-template](https://github.com/jeronimosanchez/cx-automation-template)) | Despliegue de artefactos a la plataforma | ✅ Operativo |
-| **QAP** ([agent-validation-engine](https://github.com/jeronimosanchez/agent-validation-engine)) | Validación estática + dinámica + cribador $0 | ✅ Operativo |
-| **GEN** (este) | Generación adversarial de artefactos | 🚧 En construcción |
-| **RES** ([RES](https://github.com/jeronimosanchez/RES)) | Investigación continua → knowledge base | 🚧 En construcción |
-| **CD** ([CD](https://github.com/jeronimosanchez/CD)) | Hub de conocimiento, método y skills | Existe · en construcción activa |
+GEN es una de las **4 líneas** del sistema de Automatización CD (ACT · QAP · GEN · RES) coordinadas por el hub **CD**. El **mapa completo y el estado de cada línea** está en **[SISTEMA.md](https://github.com/jeronimosanchez/CD/blob/main/SISTEMA.md)** (fuente única — no se duplica aquí).
