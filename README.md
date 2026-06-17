@@ -3,7 +3,7 @@
 **Línea GEN** del sistema de automatización CD — motor adversarial para generar y optimizar artefactos conversacionales (playbooks, examples, intents) antes de desplegarlos.
 
 > Primera instancia: **Petal** (agente de floristería en Dialogflow CX).
-> El método es **agnóstico de plataforma**.
+> El método está **diseñado para ser agnóstico de plataforma** (aún por demostrar fuera de CX).
 > Estado: **en construcción** — arquitectura diseñada, implementación pendiente.
 
 ---
@@ -51,7 +51,7 @@ Cada variante explora una **palanca de diseño** distinta — ejemplos: concisi�
 | `gen_ag_generator` | Genera **n variantes por palanca** (dimensiones explícitas) | 🔴 Definida, no implementada |
 | `gen_ag_reviewer` | Filtra y selecciona las mejores variantes (filtro de razonamiento, LLM2) | 🔴 Definida, no implementada |
 | `gen_ag_adversarial` | Genera conversaciones difíciles / edge cases para romper el agente | 🔴 Definida, no implementada |
-| `gen_plat_cx_hypothesis_fixer` | Genera el fix puntual que **Sistema A·REPARA** aplica | 🔴 Definida, no implementada |
+| `gen_plat_cx_hypothesis_fixer` | Genera el fix puntual que **Sistema A·REPARA** aplica | ⚪ Prevista (sin definir aún) |
 
 Las definiciones están en `skills/`.
 
