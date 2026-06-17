@@ -17,7 +17,7 @@ Optimizar un playbook conversacional a mano es lento y sesgado: el diseñador no
 ```
 Fase 1 — GENERACIÓN (LLM1, guiada por el KB)
   gen_context_loader carga el KB (principios + reglas de plataforma + constraints del cliente)
-  → LLM1 genera 10-15 variantes YA dentro de bounds
+  → LLM1 genera n variantes por palanca, ya dentro de bounds
   (cada una explora una elección arquitectónica real: concisión, fallbacks, sintaxis NLU+LLM…)
 
 Fase 2 — CRIBA (barata — reduce antes de gastar en la plataforma)
@@ -48,9 +48,10 @@ Cada variante explora una **palanca de diseño** distinta — ejemplos: concisi�
 | Skill | Rol | Estado |
 |---|---|---|
 | `gen_context_loader` | Carga y enriquece el contexto antes de generar | 🔴 Definida, no implementada |
-| `gen_ag_generator` | Genera 10-15 variantes del artefacto con dimensiones explícitas | 🔴 Definida, no implementada |
-| `gen_ag_reviewer` | Filtra y selecciona las 3 mejores variantes | 🔴 Definida, no implementada |
-| `gen_ag_adversarial` | Genera conversaciones difíciles para romper el agente | 🔴 Definida, no implementada |
+| `gen_ag_generator` | Genera **n variantes por palanca** (dimensiones explícitas) | 🔴 Definida, no implementada |
+| `gen_ag_reviewer` | Filtra y selecciona las mejores variantes (filtro de razonamiento, LLM2) | 🔴 Definida, no implementada |
+| `gen_ag_adversarial` | Genera conversaciones difíciles / edge cases para romper el agente | 🔴 Definida, no implementada |
+| `gen_plat_cx_hypothesis_fixer` | Genera el fix puntual que **Sistema A·REPARA** aplica | 🔴 Definida, no implementada |
 
 Las definiciones están en `skills/`.
 
